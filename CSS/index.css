@@ -15,6 +15,7 @@
   color: #ffffff;
   font-size: 20px;
   font-weight: bold;
+  transition-duration: 0.6s;
 }
 .dropdown .dropdown-button:hover {
   background-color: #be2530;
