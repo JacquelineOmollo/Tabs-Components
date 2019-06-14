@@ -24,11 +24,11 @@ class TabLink {
   select() {
     // Get all of the elements with the tabs-link class
 
-    const links = document.getElementsByClassName(".tabs-link");
+    const links = document.querySelectorAll(".tabs-link");
 
     // Using a loop or the forEach method remove the 'tabs-link-selected' class from all of the links
-    Array.from(links).forEach(links, function(el) {
-      el.classList.remove("tabs-link-selected");
+    links.forEach(links => {
+      links.classList.remove("tabs-link-selected");
     });
 
     // Add a class named "tabs-link-selected" to this link
@@ -36,6 +36,7 @@ class TabLink {
     this.element.classList.add("tabs-link-selected");
 
     // Call the select method on the item associated with this link
+    this.tabItem.select();
   }
 }
 
@@ -49,11 +50,14 @@ class TabItem {
   select() {
     // Select all ".tabs-item" elements from the DOM
 
-    const items = document.querySelector(".tabs-item");
+    const items = document.querySelectorAll(".tabs-item");
 
     // Remove the class "tabs-item-selected" from each element
+    items.forEach(items => {
+      items.classList.remove("tabs-item-selected");
+    });
     // Add a class named "tabs-item-selected" to this element
-    this.element.classList.toggle("links");
+    this.element.classList.add("tabs-item-selected");
   }
 }
 
@@ -63,6 +67,6 @@ class TabItem {
 //- With your selection in place, now chain a .forEach() method onto //the links variable to iterate over the DOM NodeList
 //- In your .forEach() method's callback function, return a new instance of TabLink and pass in each link as a parameter
 const links = document.querySelectorAll(".tabs-link");
-links.forEach(element => {
-  return new TabLink(event);
+links.forEach(links => {
+  return new TabLink(links);
 });
