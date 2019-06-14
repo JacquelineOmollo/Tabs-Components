@@ -7,7 +7,7 @@ class TabLink {
     this.data = this.element.dataset.tab;
 
     // Using the custom data attribute get the associated Item element
-    this.item = document.querySelector(`.tab-item[data-tab="${this.data}"]`);
+    this.item = document.querySelector(`.tabs-item[data-tab="${this.data}"]`);
 
     // Using the Item element, create a new instance of the TabItem class
     this.tabItem = new TabItem(this.item);
@@ -65,4 +65,4 @@ class TabItem {
 //- In your .forEach() method's callback function, return a new instance of TabLink and pass in each link as a parameter
 let links = document
   .querySelectorAll(".tabs-link")
-  .forEach(link => new TabLink(links));
+  .forEach(link => new TabLink(link));
